@@ -1,0 +1,4 @@
+war_path: /var/lib/jenkins/workspace/ansibleandmvn/target/
+tomcat_path: /home/devops/Downloads
+dest_path: /home/ak005/tomcat
+

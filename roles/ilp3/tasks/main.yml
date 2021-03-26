@@ -1,0 +1,17 @@
+- name: creating directory
+  file:
+    path: '{{ dest_path }}'
+    state: directory
+- name: installing tomcat
+  ansible.builtin.unarchive:
+    src: '{{ tomcat_path }}/apache-tomcat-8.5.64.tar.gz'
+    dest: '{{ dest_path }}'
+    
+- name: copying war file
+  ansible.builtin.copy:
+    src: '{{ war_path }}/devOpsApp.war'
+    dest: '{{ dest_path }}/apache-tomcat-8.5.64/webapps'
+    
+- name: starting tomcat
+  command: "nohup {{ dest_path }}/apache-tomcat-8.5.64/bin/startup.sh"
+        
